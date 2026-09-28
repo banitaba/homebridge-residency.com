@@ -10,6 +10,7 @@
   --accent-dark: #7c6034;
   --line: rgba(48, 49, 45, 0.16);
   --shadow: 0 24px 70px rgba(28, 29, 27, 0.18);
+  --font-brand: "Century Gothic", "Avenir Next", Futura, "Trebuchet MS", sans-serif;
 }
 
 * {
@@ -24,7 +25,7 @@ body {
   margin: 0;
   color: var(--ink);
   background: var(--paper);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-brand);
   line-height: 1.55;
 }
 
@@ -64,65 +65,44 @@ img {
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
   font-size: 1rem;
   letter-spacing: 0;
 }
 
-.brand strong,
-.brand small {
+.brand-type,
+.brand-type strong,
+.brand-type small {
   display: block;
-  line-height: 1.05;
+  line-height: 1;
 }
 
-.brand small {
+.brand-type {
+  min-width: 0;
+  text-transform: uppercase;
+}
+
+.brand-type strong {
+  font-family: var(--font-brand);
+  font-size: 1.08rem;
+  font-weight: 700;
+}
+
+.brand-type small {
+  margin-top: 5px;
   color: currentColor;
-  opacity: 0.74;
-  font-size: 0.78rem;
+  opacity: 0.82;
+  font-size: 0.59rem;
+  font-weight: 500;
 }
 
 .brand-mark {
-  position: relative;
-  width: 42px;
-  height: 42px;
-  border: 2px solid currentColor;
-  border-radius: 8px;
+  display: block;
+  flex: 0 0 auto;
+  width: 67px;
+  height: auto;
 }
 
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 10px;
-  width: 22px;
-  height: 18px;
-  border: 2px solid currentColor;
-  border-top: 0;
-}
-
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  left: 7px;
-  top: 9px;
-  width: 24px;
-  height: 2px;
-  background: currentColor;
-  transform: rotate(-28deg);
-  transform-origin: left center;
-}
-
-.brand-mark span {
-  position: absolute;
-  left: 9px;
-  right: 9px;
-  bottom: 8px;
-  height: 8px;
-  border: 2px solid currentColor;
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
-  border-bottom: 0;
-}
 
 .site-nav {
   justify-self: center;
@@ -133,7 +113,7 @@ img {
 }
 
 .site-nav a,
-.site-footer a {
+.site-footer nav a {
   opacity: 0.82;
 }
 
@@ -217,7 +197,7 @@ img {
   font-size: 0.78rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
 }
 
 .hero .eyebrow {
@@ -233,7 +213,8 @@ p {
 
 h1 {
   margin-bottom: 22px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-brand);
+  font-weight: 700;
   font-size: clamp(3.25rem, 8vw, 7rem);
   line-height: 0.92;
   letter-spacing: 0;
@@ -242,7 +223,8 @@ h1 {
 
 h2 {
   margin-bottom: 18px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-brand);
+  font-weight: 700;
   font-size: clamp(2.1rem, 4.4vw, 4.6rem);
   line-height: 1.02;
   letter-spacing: 0;
@@ -329,48 +311,19 @@ section {
 
 .story-visual {
   min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   border-left: 1px solid var(--line);
+  overflow: visible;
 }
 
-.arch-window {
-  position: absolute;
-  inset: 24px 8% 24px 16%;
-  border: 2px solid var(--charcoal);
-  border-top-left-radius: 190px;
-  border-top-right-radius: 190px;
-}
-
-.arch-window::before,
-.arch-window::after {
-  content: "";
-  position: absolute;
-  background: var(--charcoal);
-}
-
-.arch-window::before {
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-}
-
-.arch-window::after {
-  left: 0;
-  right: 0;
-  top: 47%;
-  height: 2px;
-}
-
-.bridge-line {
-  position: absolute;
-  left: 0;
-  right: 8%;
-  bottom: 88px;
-  height: 28px;
-  border-top: 3px solid var(--accent);
-  border-bottom: 3px solid var(--accent);
-  transform: skewY(-8deg);
+.story-logo {
+  width: min(115%, 620px);
+  max-width: none;
+  height: auto;
+  margin-left: 8%;
 }
 
 .founders {
@@ -404,6 +357,17 @@ section {
   color: #fff;
   background: var(--sage);
   font-weight: 800;
+}
+
+.founder-photo {
+  display: block;
+  width: 88px;
+  height: 88px;
+  margin-bottom: 14px;
+  border: 2px solid var(--stone);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 24%;
 }
 
 .founders p,
@@ -644,6 +608,18 @@ textarea:focus {
   color: rgba(255, 255, 255, 0.68);
 }
 
+.footer-brand {
+  width: fit-content;
+}
+
+.footer-brand .brand-mark {
+  color: #fff;
+}
+
+.footer-brand-wrap > p {
+  margin-top: 12px;
+}
+
 .site-footer nav {
   display: flex;
   flex-wrap: wrap;
@@ -728,6 +704,12 @@ textarea:focus {
     min-height: 360px;
     order: 2;
   }
+
+  .story-logo {
+    width: min(90vw, 520px);
+    max-width: 100%;
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 640px) {
@@ -736,8 +718,16 @@ textarea:focus {
   }
 
   .brand-mark {
-    width: 38px;
-    height: 38px;
+    width: 58px;
+  }
+
+  .brand-type strong {
+    font-size: 0.9rem;
+  }
+
+  .brand-type small {
+    margin-top: 4px;
+    font-size: 0.52rem;
   }
 
   .hero {

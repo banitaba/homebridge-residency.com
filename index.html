@@ -15,18 +15,16 @@
     >
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://homebridge-residency.com">
-    <meta property="og:image" content="https://homebridge-residency.com/assets/homebridge-hero.png">
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="preload" href="assets/homebridge-hero.png" as="image">
+    <meta property="og:image" content="https://homebridge-residency.com/assets/homebridge-hero-interior.png">
+    <link rel="icon" href="assets/homebridge-logo.png" type="image/png">
+    <link rel="preload" href="assets/homebridge-hero-interior.png" as="image">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <header class="site-header" data-header>
       <a class="brand" href="#home" aria-label="HomeBridge Residency home">
-        <span class="brand-mark" aria-hidden="true">
-          <span></span>
-        </span>
-        <span>
+        <img class="brand-mark" src="assets/homebridge-logo.png" alt="">
+        <span class="brand-type">
           <strong>HomeBridge</strong>
           <small>Residency</small>
         </span>
@@ -47,7 +45,7 @@
 
     <main id="home">
       <section class="hero">
-        <img src="assets/homebridge-hero.png" alt="A warm residential entryway with a bridge-like walkway leading to an open door.">
+        <img src="assets/homebridge-hero-interior.png" alt="A warm, thoughtfully furnished shared living and dining room with comfortable seating, natural light, and welcoming residential details.">
         <div class="hero-shade" aria-hidden="true"></div>
         <div class="hero-content">
           <p class="eyebrow">Los Angeles County & Orange County</p>
@@ -87,8 +85,7 @@
 
       <section class="story-section" id="story">
         <div class="story-visual" aria-hidden="true">
-          <div class="arch-window"></div>
-          <div class="bridge-line"></div>
+          <img class="story-logo" src="assets/homebridge-logo.png" alt="">
         </div>
         <div class="story-copy">
           <p class="eyebrow">Our Story</p>
@@ -103,12 +100,12 @@
           </p>
           <div class="founders">
             <article>
-              <span>DL</span>
+              <img class="founder-photo" src="assets/dongze-li-headshot.jpeg" alt="Portrait of Dongze Li">
               <h3>Dongze Li</h3>
               <p>United States Marine Corps Veteran | Technical Designer at Gensler</p>
             </article>
             <article>
-              <span>AB</span>
+              <img class="founder-photo" src="assets/ali-banitaba-headshot.jpeg" alt="Portrait of Ali Banitaba">
               <h3>Ali Banitaba</h3>
               <p>USC School of Architecture graduate | Designer at Uriu Architecture</p>
             </article>
@@ -249,8 +246,14 @@
     </main>
 
     <footer class="site-footer">
-      <div>
-        <strong>HomeBridge Residency</strong>
+      <div class="footer-brand-wrap">
+        <a class="brand footer-brand" href="#home" aria-label="HomeBridge Residency home">
+          <img class="brand-mark" src="assets/homebridge-logo.png" alt="">
+          <span class="brand-type">
+            <strong>HomeBridge</strong>
+            <small>Residency</small>
+          </span>
+        </a>
         <p>Dignified, affordable shared living and a place to call home.</p>
       </div>
       <nav aria-label="Footer navigation">

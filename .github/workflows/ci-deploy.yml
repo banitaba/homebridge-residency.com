@@ -41,7 +41,8 @@ jobs:
           set -euo pipefail
           mkdir release
           # Tracked files only; no .git, dotfiles, workflows or deploy scripts are published.
-          git archive --format=tar HEAD -- . ':(exclude,glob).*' ':(exclude,glob)**/.*' ':(exclude).github' ':(exclude)scripts' | tar -x -C release
+          git archive --format=tar HEAD -- . ':(exclude).github' ':(exclude)scripts' | tar -x -C release
+          find release -mindepth 1 -name '.*' ! -name '.well-known' -prune -exec rm -rf {} +
           printf '{"commit":"%s"}\n' "$RELEASE_SHA" > release/release.json
           tar -czf release.tar.gz -C release .
           sha256sum release.tar.gz > release.tar.gz.sha256
